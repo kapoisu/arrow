@@ -24,10 +24,10 @@
 
 namespace parquet::encryption {
 
-FileKeyUnwrapper::FileKeyUnwrapper(
-    KeyToolkit* key_toolkit, KmsConnectionConfig kms_connection_config,
-    double cache_lifetime_seconds, std::string file_path,
-    std::shared_ptr<::arrow::fs::FileSystem> file_system)
+FileKeyUnwrapper::FileKeyUnwrapper(KeyToolkit* key_toolkit,
+                                   KmsConnectionConfig kms_connection_config,
+                                   double cache_lifetime_seconds, std::string file_path,
+                                   std::shared_ptr<::arrow::fs::FileSystem> file_system)
     : FileKeyUnwrapper(key_toolkit, std::move(kms_connection_config),
                        cache_lifetime_seconds, /*key_material_store=*/NULLPTR,
                        std::move(file_path), std::move(file_system)) {}
@@ -43,8 +43,8 @@ FileKeyUnwrapper::FileKeyUnwrapper(
 FileKeyUnwrapper::FileKeyUnwrapper(
     KeyToolkit* key_toolkit, KmsConnectionConfig kms_connection_config,
     double cache_lifetime_seconds,
-    std::shared_ptr<FileKeyMaterialStore> key_material_store,
-    std::string file_path, std::shared_ptr<::arrow::fs::FileSystem> file_system)
+    std::shared_ptr<FileKeyMaterialStore> key_material_store, std::string file_path,
+    std::shared_ptr<::arrow::fs::FileSystem> file_system)
     : key_toolkit_(key_toolkit),
       kms_connection_config_(std::move(kms_connection_config)),
       cache_entry_lifetime_seconds_(cache_lifetime_seconds),

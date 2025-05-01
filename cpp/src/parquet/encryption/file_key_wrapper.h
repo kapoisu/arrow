@@ -51,8 +51,7 @@ class PARQUET_EXPORT FileKeyWrapper {
   /// KmsClient if it's not in the cache yet. cache_entry_lifetime_seconds is life time of
   /// KmsClient in the cache. key_material_store is to store "key material" outside
   /// parquet file, NULL if "key material" is stored inside parquet file.
-  FileKeyWrapper(KeyToolkit* key_toolkit,
-                 KmsConnectionConfig kms_connection_config,
+  FileKeyWrapper(KeyToolkit* key_toolkit, KmsConnectionConfig kms_connection_config,
                  std::shared_ptr<FileKeyMaterialStore> key_material_store,
                  double cache_entry_lifetime_seconds, bool double_wrapping);
 
