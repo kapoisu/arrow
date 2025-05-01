@@ -171,7 +171,7 @@ std::shared_ptr<FileDecryptionProperties> CryptoFactory::GetFileDecryptionProper
     const DecryptionConfiguration& decryption_config, const std::string& file_path,
     const std::shared_ptr<::arrow::fs::FileSystem>& file_system) {
   auto key_retriever = std::make_shared<FileKeyUnwrapper>(
-      key_toolkit_, kms_connection_config, decryption_config.cache_lifetime_seconds,
+      key_toolkit_.get(), kms_connection_config, decryption_config.cache_lifetime_seconds,
       file_path, file_system);
 
   return FileDecryptionProperties::Builder()
