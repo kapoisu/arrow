@@ -52,7 +52,7 @@ class PARQUET_EXPORT FileKeyWrapper {
   /// KmsClient in the cache. key_material_store is to store "key material" outside
   /// parquet file, NULL if "key material" is stored inside parquet file.
   FileKeyWrapper(KeyToolkit* key_toolkit,
-                 const KmsConnectionConfig& kms_connection_config,
+                 KmsConnectionConfig kms_connection_config,
                  std::shared_ptr<FileKeyMaterialStore> key_material_store,
                  double cache_entry_lifetime_seconds, bool double_wrapping);
 
